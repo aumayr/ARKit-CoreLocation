@@ -16,15 +16,15 @@ protocol LocationManagerDelegate: class {
 
 ///Handles retrieving the location and heading from CoreLocation
 ///Does not contain anything related to ARKit or advanced location
-class LocationManager: NSObject, CLLocationManagerDelegate {
+public class LocationManager: NSObject, CLLocationManagerDelegate {
     weak var delegate: LocationManagerDelegate?
 
     var locationManager: CLLocationManager?
 
     var currentLocation: CLLocation?
 
-    var heading: CLLocationDirection?
-    var headingAccuracy: CLLocationDegrees?
+    public var heading: CLLocationDirection?
+    public var headingAccuracy: CLLocationDegrees?
 
     override init() {
         super.init()
