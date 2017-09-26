@@ -59,11 +59,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
 
     //MARK: - CLLocationManagerDelegate
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for location in locations {
             self.delegate?.locationManagerDidUpdateLocation(self, location: location)
         }
@@ -71,7 +71,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
         self.currentLocation = manager.location
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         if newHeading.headingAccuracy >= 0 {
             self.heading = newHeading.trueHeading
         } else {
@@ -83,7 +83,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate {
         self.delegate?.locationManagerDidUpdateHeading(self, heading: self.heading!, accuracy: newHeading.headingAccuracy)
     }
 
-    func locationManagerShouldDisplayHeadingCalibration(_ manager: CLLocationManager) -> Bool {
+    public func locationManagerShouldDisplayHeadingCalibration(_ manager: CLLocationManager) -> Bool {
         return true
     }
 }
